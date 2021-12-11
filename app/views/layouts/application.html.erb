@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Imemory</title>
+    <title>Warm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="robots" content="nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="あなたの物語を売るサイトです。" />
+    <meta name="keywords" content="家、車、おじいちゃん, おばあちゃん, 家族, 温かい, Warm, 暖かい家族, familykamatyo, ふぁみりーかまちょ, 小田純平" />
+    <meta name="author" content="小田純平" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
+    <body class="d-flex flex-column vh-100 background_image">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-light justfy-content-between nav-back">
+        <div class="container-fluid">
+          <a class="navbar-brand p-2" href="/"><div class="webtitle"></div></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if member_signed_in? %>
+                <li class="nav-item"><%= link_to 'プロフィール', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿一覧', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '質問投稿', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '質問一覧', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'お問い合わせ', "#", class:"nav-text" %></li>
+                <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
+              <% elsif user_signed_in? %>
+                <li class="nav-item"><%= link_to 'プロフィール', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿画面', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'お問い合わせ', "#", class:"nav-text" %></li>
+                <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
+              <!--% elsif admin_signed_in? %>-->
+              <!--  <li class="nav-item">%= link_to '投稿会員一覧', "#" , class: "btn btn-warning" %></li>-->
+              <!--  <li class="nav-item">%= link_to '家族会員一覧', admin_members_path, class: "btn btn-warning" %></li>-->
+              <!--  <li class="nav-item">%= link_to '投稿一覧', admin_posts_path, class: "btn btn-warning" %></li>-->
+              <!--  <li class="nav-item">%= link_to '家族コード一覧', admin_familycodes_path, class: "btn btn-warning" %></li>-->
+              <!--  <li class="nav-item">%= link_to "お問い合わせ画面", admin_inquiries_path, class:"btn btn-warning" %></li>-->
+              <!--  <li class="nav-item">%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-warning" %></li>-->
+              <% else %>
+                <li class="nav-item"><%= link_to '家族コード作成', new_familycode_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '家族会員ログイン', member_session_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '投稿会員ログイン', user_session_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'お問い合わせ', new_inquiry_path, class:"nav-text" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
+      <% if member_signed_in? %>
+        <div class= "welcome">
+          <span class="name">ようこそ!!<%= current_member.name %>様</span>
+        </div>
+      <% elsif user_signed_in? %>
+        <div class= "welcome">
+          <span class="name">ようこそ!!<%= current_user.name %>様</span>
+        </div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer class="text-black pt-5 pb-4">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <p><i class="fab fa-ussunnah"></i>あなたの物語を売って下さい。<strong></strong></p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
