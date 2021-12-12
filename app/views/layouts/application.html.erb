@@ -13,8 +13,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     <body class="d-flex flex-column vh-100 background_image">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-light justfy-content-between nav-back">
+    <header class="shadow-sm ">
+      <nav class="navbar navbar-light justfy-content-between nav-back bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand p-2" href="/"><div class="webtitle"></div></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,8 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if member_signed_in? %>
-                <li class="nav-item"><%= link_to 'プロフィール', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to '投稿一覧', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to '質問投稿', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to '質問一覧', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'Mypage', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '商品一覧', "#", class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', "#", class:"nav-text" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
               <% elsif user_signed_in? %>
@@ -66,11 +64,11 @@
       <% end %>
       <%= yield %>
     </main>
-    <footer class="text-black pt-5 pb-4">
+    <footer class="text-black pt-5 pb-4 bg-dark text-light">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
-            <p><i class="fab fa-ussunnah"></i>あなたの物語を売って下さい。<strong></strong></p>
+            <p><i class="fab fa-ussunnah"></i>あなたとあなたの持ち物の物語<strong></strong></p>
           </div>
         </div>
       </div>
