@@ -22,14 +22,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <% if member_signed_in? %>
+              <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to 'Mypage', "#", class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to '商品一覧', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to 'お問い合わせ', "#", class:"nav-text" %></li>
-                <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
-              <% elsif user_signed_in? %>
-                <li class="nav-item"><%= link_to 'プロフィール', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to '投稿画面', "#", class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to 'お問い合わせ', "#", class:"nav-text" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
               <!--% elsif admin_signed_in? %>-->
@@ -40,7 +35,7 @@
               <!--  <li class="nav-item">%= link_to "お問い合わせ画面", admin_inquiries_path, class:"btn btn-warning" %></li>-->
               <!--  <li class="nav-item">%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-warning" %></li>-->
               <% else %>
-                <li class="nav-item"><%= link_to '家族コード作成', "#", class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '', "#", class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to '家族会員登録', new_member_registration_path, class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to '家族会員ログイン', member_session_path, class: "nav-text" %></li>
                 <li class="nav-item"><%= link_to '投稿会員登録', new_user_registration_path, class: "nav-text" %></li>
