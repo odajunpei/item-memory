@@ -24,9 +24,9 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to 'Mypage', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to '商品一覧', "#", class: "nav-text" %></li>
-                <li class="nav-item"><%= link_to 'お問い合わせ', "new_inquiry_path", class:"nav-text" %></li>
-                <li class="nav-item"><%= link_to "ログアウト", "#", method: :delete, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to '商品登録', new_product_path, class: "nav-text" %></li>
+                <li class="nav-item"><%= link_to 'お問い合わせ', new_inquiry_path, class:"nav-text" %></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-text" %></li>
               <!--% elsif admin_signed_in? %>-->
               <!--  <li class="nav-item">%= link_to '投稿会員一覧', "#" , class: "btn btn-warning" %></li>-->
               <!--  <li class="nav-item">%= link_to '家族会員一覧', admin_members_path, class: "btn btn-warning" %></li>-->
